@@ -252,6 +252,9 @@ class ACP_Model(nn.Module):
             enc_data[i, :Ns[i]] = enc_data_raw[i][sorted_ind]
             mask[i, :Ns[i]] = 1
 
+        Ks = torch.tensor(Ks)
+        Ns = torch.tensor(Ns)
+
         # the number of unfinished training examples in each mini-batch
         t = batch_size
         G = None

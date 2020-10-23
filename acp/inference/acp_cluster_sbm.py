@@ -75,7 +75,7 @@ def main():
         raise ValueError("Unknown data type: " + args.data_type)
 
     # encoder
-    if args.encoder_type == "graphsage":  # not as good as gatedconv
+    if args.encoder_type == "graphsage": 
         encoder = get_sbm_graph_sage_encoder(params)
         data_lib = "torch_geom"
 
@@ -116,18 +116,14 @@ def main():
     fname_prefix = "{}_{}".format(args.data_type, args.encoder_type)
     fname_postfix = "_N-{}_S-{}_pA-{}_pZ-{}".format(
         args.n_graphs, args.S, args.prob_nA, args.prob_nZ)
-    if not os.path.isdir(args.out_dir):
-        os.mkdir(args.out_dir)
     out_dir = os.path.join(
         args.out_dir, args.data_type + "__" + os.path.basename(model_file).strip(".pt") + fname_postfix)
-    if not os.path.isdir(out_dir):
-        os.mkdir(out_dir)
     fig_dir = os.path.join(out_dir, "figures")
     data_dir = os.path.join(out_dir, "data")
     if not os.path.isdir(fig_dir):
-        os.mkdir(fig_dir)
+        os.makedirs(fig_dir)
     if not os.path.isdir(data_dir):
-        os.mkdir(data_dir)
+        os.makedirs(data_dir)
 
     experiment_name = "Community Detection in SBM"
 

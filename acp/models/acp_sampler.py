@@ -8,8 +8,6 @@ class ACP_Sampler():
 
     def __init__(self, model, data, device=None):
 
-        assert data.shape[0] == 1
-
         if not torch.cuda.is_available():
             print('Warning: CUDA is not available')
 
@@ -19,8 +17,6 @@ class ACP_Sampler():
 
         self.model = model.to(device)
         self.device = device
-
-        N = data.shape[1]
 
         with torch.no_grad():
             self.enc_data = model.encoder(data)  # [N,e_dim]

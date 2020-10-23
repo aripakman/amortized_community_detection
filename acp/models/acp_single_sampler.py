@@ -7,8 +7,7 @@ class ACP_Single_Sampler():
     """
 
     def __init__(self, model, data, device=None):
-        
-        assert(data.shape[0] == 1)
+
         self.data = data
         self.model = model
         
@@ -19,7 +18,7 @@ class ACP_Single_Sampler():
 
     def sample(self, S=1, stochastic=False):
         
-        assert(S == 1)  # currently only support one sample
+        assert(S == 1)  # only support one sample
         logprob = 0
 
         N = self.data.shape[1]

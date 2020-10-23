@@ -1,5 +1,4 @@
 import numpy as np
-import os
 import matplotlib.pyplot as plt
 
 DEFAULT_COLORS = ['C0', 'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C8', 'C9', 'C7',

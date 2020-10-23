@@ -8,8 +8,6 @@ class ACP_Sampler():
 
     def __init__(self, model, data, device=None):
 
-        assert data.shape[0] == 1
-
         if not torch.cuda.is_available():
             print('Warning: CUDA is not available')
 
@@ -20,19 +18,17 @@ class ACP_Sampler():
         self.model = model.to(device)
         self.device = device
 
-        N = data.shape[1]
         # use the batch dim
         # data = data.view([N, *data.shape[2:]]).to(device)
 
         with torch.no_grad():
             self.enc_data = model.encoder(data)  # [1,N, e_dim]
-            # self.enc_data = self.enc_data.view([N, model.e_dim])
             # the batch dim is important for ISAB to work properly
             if len(self.enc_data.shape) == 2:
-                self.enc_data = self.enc_data.view([1, N, model.e_dim])
+                self.enc_data = self.enc_data.view([1, -1, model.e_dim])
             if self.model.use_attn:
                 self.enc_data = self.model.isab_enc(self.enc_data)
-            self.enc_data = self.enc_data.view([N, model.e_dim])
+            self.enc_data = self.enc_data.view([-1, model.e_dim])
 
             self.hs = self.model.h(self.enc_data)  # [N,h_dim]
             self.us = self.model.u(self.enc_data)  # [N,u_dim]

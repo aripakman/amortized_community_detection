@@ -252,6 +252,9 @@ class ACP_Model(nn.Module):
             mask[i, :Ns[i]] = 1
         enc_data = self.isab_enc(enc_data, mask)
 
+        Ks = torch.tensor(Ks)
+        Ns = torch.tensor(Ns)
+
         # the number of unfinished training examples in each mini-batch
         t = batch_size
         G = None
