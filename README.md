@@ -2,9 +2,10 @@
 
 This repo contains the PyTorch implementation of Attentive Clustering Process (ACP).
 
+<!-- a normal html comment  
 - Ari Pakman*, Yueqi Wang*, Yoonho Lee, Pallab Basu, Juho Lee, Yee Whye Teh, Liam Paninski, [Attentive Clustering Processes](https://arxiv.org/abs/2010.15727), arXiv preprint 2020
 - Ari Pakman, Yueqi Wang, Catalin Mitelut, JinHyung Lee, Liam Paninski, [Neural Clustering Processes](https://arxiv.org/abs/1901.00409), ICML 2020
-
+-->
 
 ### Graph community detection using ACP + Graph ConvNets (GCN)
 
