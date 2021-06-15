@@ -1,4 +1,4 @@
-# AMortized Community Detection 
+# Amortized Community Detection 
 
 
 
