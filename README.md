@@ -22,12 +22,6 @@ python -m acp.train_acp --model_name acp --data_type sbm_beta_crp --encoder_type
 # GCN-CCP with GatedGCN encoder
 python -m acp.train_acp --model_name acp --data_type sbm_beta_crp --encoder_type gatedgcn
 
-<!-- a normal html comment  
-# Use an alternative ACP model definition, e.g. ACP-S
-python -m acp.train_acp --model_name test_code --data_type sbm_beta_crp --encoder_type graphsage \
-  --load_model_def acp/models/acps_model.py
--->
-
 
 ```
 
@@ -36,14 +30,6 @@ python -m acp.train_acp --model_name test_code --data_type sbm_beta_crp --encode
 # Cluster SBM graphs using a saved checkpoint
 python -m acp.inference.acp_cluster_sbm --data_type sbm_beta_crp --encoder_type graphsage \
   --model_file ./saved_models/xxxx.pt
-
-<!-- a normal html comment  
-# Use an alternative ACP model and sampler, e.g. ACP-S
-python -m acp.inference.acp_cluster_sbm --data_type sbm_beta_crp --encoder_type gatedgcn \
-  --model_file ./saved_models/xxxx.pt \
-  --load_model_def acp/models/acps_model.py --load_sampler_def acp/models/acps_sampler.py
-
--->
 
 ```
 
